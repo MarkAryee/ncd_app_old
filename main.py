@@ -6,15 +6,32 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from fastapi.responses import JSONResponse
+from pytorch_tabnet.tab_model import TabNetClassifier
 
 
+model = tf.keras.models.load_model('ncd_models/hypertension/deep-model1.keras')
+scaler = joblib.load('ncd_models/hypertension/deep-scaler.joblib')
+csv_name = "ncd_models/hypertension/c2.csv"
 
-# Load model and scaler
-#model = joblib.load('random_forest_model.joblib')
-#scaler = joblib.load('scaler.joblib')
+model2 = tf.keras.models.load_model('ncd_models/arthritis/deep-model1.keras')
+scaler2 = joblib.load('ncd_models/arthritis/deep-scaler.joblib')
+csv_name2 = "ncd_models/arthritis/selected.csv"
 
-model = tf.keras.models.load_model('deep-model1.keras')
-scaler = joblib.load('deep-scaler.joblib')
+model3 = tf.keras.models.load_model('ncd_models/lung_cancer/deep-model1.keras')
+scaler3 = joblib.load('ncd_models/lung_cancer/deep-scaler.joblib')
+csv_name3 = "ncd_models/lung_cancer/selected.csv"
+
+model4 = TabNetClassifier()
+model4.load_model('ncd_models/asthma/tabnet_asthma_model.zip')
+scaler4 = joblib.load('ncd_models/asthma/tabnet_scaler.joblib')
+csv_name4 = "ncd_models/asthma/selected.csv"
+
+model5 = TabNetClassifier()
+model5.load_model('ncd_models/diabetes/tabnet-model1.keras.zip')
+
+scaler5 = joblib.load('ncd_models/diabetes/deep-scaler.joblib')
+csv_name5 = "ncd_models/diabetes/selected.csv"
+
 
 app = FastAPI()
 # Allow CORS
@@ -58,11 +75,6 @@ class PatientData(BaseModel):
     HighRiskLastYear: int
     CovidPos: int
 
-  
-
-'''
-# ... add all other needed features here
- '''
 
 @app.options("/predict")    
 async def options_handler():

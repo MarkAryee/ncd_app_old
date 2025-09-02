@@ -7,7 +7,7 @@ import pandas as pd
 import tensorflow as tf
 from fastapi.responses import JSONResponse
 from pytorch_tabnet.tab_model import TabNetClassifier
-
+import os
 
 model = tf.keras.models.load_model('ncd_models/hypertension/deep-model1.keras')
 scaler = joblib.load('ncd_models/hypertension/deep-scaler.joblib')

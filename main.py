@@ -108,4 +108,16 @@ def predict_asthma(data: PatientData):
         "asthma_probability": float(proba),
         "asthma_prediction": int(pred)
     }
+
+
+if __name__ == "__main__":
+    # Get port from environment (Render sets $PORT automatically)
+    port = int(os.environ.get("PORT", 8000))  # fallback to 8000 for local dev
+
+    uvicorn.run(
+        "server:main",      # file_name:app_instance
+        host="0.0.0.0",    # bind to all interfaces
+        port=port,
+        reload=False       # set True if you want auto-reload locally
+    )
     

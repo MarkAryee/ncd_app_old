@@ -6,13 +6,13 @@ WORKDIR .
 
 # Copy requirements and install
 COPY requirements.txt .
-#RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy your app files
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 8000
+EXPOSE $PORT
 
 # Start command
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", $PORT]

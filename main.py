@@ -97,3 +97,6 @@ def predict_asthma(data: PatientData):
         "asthma_prediction": int(pred)
     }
     
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

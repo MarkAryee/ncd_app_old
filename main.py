@@ -163,21 +163,6 @@ def predict_arthritis(data: PatientData2):
 
     return explain_prediction(model2, scaler2, input_df, X, "Arthritis", 0.1969, 0.4359)
     
-    '''
-    input_scaled = scaler2.transform(input_df)    # Scale features
-
-    # proba = model2.predict_proba(input_scaled)[:, 1][0] # Predict probability
-    proba = model2.predict(input_scaled).flatten()[0]
-    
-    pred = model2.predict(input_scaled)[0]    # Predict class
-
-    return {
-        "ncd_probability": float(proba),
-        "ncd_prediction": int(pred)
-    }
-    '''
-
-
 
 #---------------------------------Model3--------------------------------------------------
 
@@ -212,91 +197,6 @@ def predict_lung_cancer(data: PatientData3):
     return explain_prediction(model3, scaler3, input_df, X, "Lung Cancer",0.4323, 0.4817)
     
     
-#---------------------------------Model4--------------------------------------------------
-
-class PatientData4(BaseModel):# Defining the input data model
-    Sex: int
-    PhysicalHealthDays: float
-    MentalHealthDays: float
-    LastCheckupTime: int
-    PhysicalActivities: int
-    SleepHours: float
-    RemovedTeeth: int
-    HadHeartAttack: int
-    HadAngina: int
-    HadStroke: int
-    HadSkinCancer: int
-    HadCOPD: int
-    HadDepressiveDisorder: int
-    HadKidneyDisease: int
-    HadArthritis: int
-    HadDiabetes: int
-    DeafOrHardOfHearing: int
-    BlindOrVisionDifficulty: int
-    DifficultyConcentrating: int
-    DifficultyWalking: int
-    DifficultyDressingBathing: int
-    DifficultyErrands: int
-    SmokerStatus: int
-    ECigaretteUsage: int
-    ChestScan: int
-    RaceEthnicityCategory: int
-    AgeCategory: int
-    HeightInMeters: float
-    WeightInKilograms: float
-    BMI: float
-    AlcoholDrinkers: int
-    HIVTesting: int
-    FluVaxLast12: int
-    PneumoVaxEver: int
-    TetanusLast10Tdap: int
-    HighRiskLastYear: int
-    CovidPos: int
-   
-#---------------------------------TabNet_Models--------------------------------------------------
-
-from helpers_explain_utils import explain_prediction_tabnet
-@app.post("/predict/asthma")
-def predict_asthma(data: PatientData4):
-    
-    df = pd.read_csv(csv_name4)
-    input_df = pd.DataFrame([data.dict()]) # Convert incoming data to DataFrame (or array) matching model input
-    if "Unnamed: 0" in df.columns:
-        df = df.drop(columns=["Unnamed: 0"])
-
-    X = df.drop(['HadAsthma'], axis=1)
-    
-    return explain_prediction_tabnet(model4, scaler4, input_df, X, "Asthma", 0.3477, 0.5095)
-
-
-
-#---------------------------------Model5--------------------------------------------------
-
-class PatientData5(BaseModel):# Defining the input data model
-    gender: float
-    age: float
-    #hypertension: int
-    #heart_disease: int
-    smoking_history: int
-    bmi: float
-    HbA1c_level: float
-    blood_glucose_level: int
-    #diabetes: int
-
-@app.post("/predict/diabetes")
-def predict_diabetes(data: PatientData5):
-    
-    df = pd.read_csv(csv_name5)
-    input_df = pd.DataFrame([data.dict()]) # Convert incoming data to DataFrame (or array) matching model input
-    if "Unnamed: 0" in df.columns:
-        df = df.drop(columns=["Unnamed: 0"])
-
-    X = df.drop(['hypertension', 'heart_disease','diabetes'], axis=1)
-    
-    #return explain_prediction(model5, scaler5, input_df, X, "Diabetes", 0.5495, 0.5495)
-    return explain_prediction_tabnet(model5, scaler5, input_df, X, "Diabetes", 0.5495, 0.5495)
-
-  
 
 
 

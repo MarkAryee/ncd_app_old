@@ -79,7 +79,7 @@ csv_name3 = "ncd_models/lung_cancer/selected.csv"
 
 
 from helpers_explain_utils import explain_prediction
-
+import pandas as pd
 #---------------------------------Model--------------------------------------------------
 from pydantic import BaseModel
 class PatientData(BaseModel):# Define the input data model

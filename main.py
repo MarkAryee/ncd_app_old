@@ -78,6 +78,52 @@ csv_name5 = "ncd_models/diabetes/selected.csv"
 from pydantic import BaseModel
 #---------------------------------TabNet_Models--------------------------------------------------
 
+
+
+
+
+
+
+
+class PatientData4(BaseModel):# Defining the input data model
+    Sex: int
+    PhysicalHealthDays: float
+    MentalHealthDays: float
+    LastCheckupTime: int
+    PhysicalActivities: int
+    SleepHours: float
+    RemovedTeeth: int
+    HadHeartAttack: int
+    HadAngina: int
+    HadStroke: int
+    HadSkinCancer: int
+    HadCOPD: int
+    HadDepressiveDisorder: int
+    HadKidneyDisease: int
+    HadArthritis: int
+    HadDiabetes: int
+    DeafOrHardOfHearing: int
+    BlindOrVisionDifficulty: int
+    DifficultyConcentrating: int
+    DifficultyWalking: int
+    DifficultyDressingBathing: int
+    DifficultyErrands: int
+    SmokerStatus: int
+    ECigaretteUsage: int
+    ChestScan: int
+    RaceEthnicityCategory: int
+    AgeCategory: int
+    HeightInMeters: float
+    WeightInKilograms: float
+    BMI: float
+    AlcoholDrinkers: int
+    HIVTesting: int
+    FluVaxLast12: int
+    PneumoVaxEver: int
+    TetanusLast10Tdap: int
+    HighRiskLastYear: int
+    CovidPos: int
+ 
 from helpers_explain_utils import explain_prediction_tabnet
 @app.post("/predict/asthma")
 def predict_asthma(data: PatientData4):

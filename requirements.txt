@@ -1,0 +1,10 @@
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/uvicorn-0.34.2-py3-none-any.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/fastapi-0.115.12-py3-none-any.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/joblib-1.4.2-py3-none-any.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/numpy-1.26.4-cp311-cp311-manylinux.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/pandas-2.2.3-cp311-cp311-manylinux.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/pydantic-2.11.4-py3-none-any.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/tensorflow_cpu-2.19.0-cp311-cp311-manylinux.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/scikit_learn-1.6.1-cp311-cp311-manylinux.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/shap-0.48.0-cp311-cp311-manylinux.whl
+https://github.com/MarkAryee/ncd-WHEELS/releases/download/wheeltag/pytorch_tabnet-4.1.0-py3-none-any.whl

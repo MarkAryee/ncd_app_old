@@ -112,39 +112,7 @@ def explain_prediction(model, scaler, input_df, X, disease_name, proba_lowT, pro
         "final_narrative": final_narrative,
     }
         
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
-#from transformers import pipeline
-import re
-
-
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import joblib
-import numpy as np
-import pandas as pd
-import tensorflow as tf
-from pytorch_tabnet.tab_model import TabNetClassifier
-import numpy as np
-import joblib
-import pandas as pd
-import shap
-from tensorflow.keras.models import load_model
-
-
-  
   
 def explain_prediction_tabnet(model, scaler, input_df, X, disease_name, proba_lowT, proba_modT):
     # Scale features
@@ -237,4 +205,5 @@ def explain_prediction_tabnet(model, scaler, input_df, X, disease_name, proba_lo
   
   
   
+
   

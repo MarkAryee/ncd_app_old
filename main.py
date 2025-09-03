@@ -74,7 +74,7 @@ csv_name5 = "ncd_models/diabetes/selected.csv"
 
 
 
-
+import pandas as pd
 from pydantic import BaseModel
 #---------------------------------TabNet_Models--------------------------------------------------
 
